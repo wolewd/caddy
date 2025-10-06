@@ -21,7 +21,7 @@ That’s why I chose **Caddy** as my go-to reverse proxy for this use case.
 ---
 
 ## Prerequisites
-
+- A domain
 - A VPS or local machine running Linux (tested on Ubuntu & Arch Linux)  
 - Docker and Docker Compose installed  
 - A Docker network named `application_network`  
