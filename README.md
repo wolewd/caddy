@@ -1,6 +1,6 @@
 # Caddy with Docker Compose
 
-[![Docker](https://img.shields.io/badge/Docker-✔-2496ED?logo=docker&logoColor=white)](https://www.docker.com/) [![Caddy](https://img.shields.io/badge/Caddy-✔-00CC88?logo=caddy&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-✔-2496ED?logo=docker&logoColor=white)](https://www.docker.com/) [![Caddy](https://img.shields.io/badge/Caddy-✔-00CC88?logo=caddy&logoColor=white)](https://caddyserver.com/)
 
 This repository provides a simple and production-friendly setup for **Caddy** as a reverse proxy.
 It’s designed to be minimal yet flexible — ideal for hosting your personal website, portfolio projects, or Docker-based web services.
