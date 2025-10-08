@@ -88,8 +88,7 @@ If you want to expose your Caddy instance directly to the internet, you’ll nee
       - "443:443"
     ```
 
-2. Update your `Caddyfile` to directly serve your domain:
-    Replace your existing configuration with this:
+2. Update your `Caddyfile` to directly serve your domain by replacing your existing configuration with this:
     ```Caddy
     example.com {
         root * /srv
@@ -97,5 +96,6 @@ If you want to expose your Caddy instance directly to the internet, you’ll nee
         encode gzip
     }
     ```
-    Change `example.com` to your domain — Caddy will automatically handle SSL certificates for you!
+    Change `example.com` to your domain — Caddy will automatically handle SSL certificates for you.
+    Don't forget to map your domain DNS directly to your server IP.
 ---
