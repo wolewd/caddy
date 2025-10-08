@@ -52,6 +52,25 @@ That’s why I chose **Caddy** as my go-to reverse proxy for this use case.
 #### Using Cloudflare Tunnel
 By default, this setup is designed to work with Cloudflare Tunnel, so there’s no need to expose ports 80 or 443 publicly — Cloudflare handles secure routing.
 
+
+Modify your `Caddyfile` if you running your services in other container:
+```Caddy
+{
+    auto_https off
+}
+
+www.example.com:80 {
+    redir http://example.com{uri} permanent
+}
+
+example.com:80 {
+    reverse_proxy container-name:8080
+}
+```
+Change `example.com` to your domain andd make sure you change `container-name:8080` to your service container and port. 
+You can also remove `www.example.com` block if you don't use `www` sub domain.
+Cloudflare tunnel will handle the TLS for you.
+
 #### Direct Public Access
 If you want to expose your Caddy instance directly to the internet, you’ll need to make a few small adjustments:
 
@@ -76,23 +95,6 @@ If you want to expose your Caddy instance directly to the internet, you’ll nee
         root * /srv
         file_server
         encode gzip
-
-        header {
-            X-Content-Type-Options "nosniff"
-            X-Frame-Options "DENY"
-            Strict-Transport-Security "max-age=31536000; includeSubDomains"
-            Referrer-Policy "no-referrer-when-downgrade"
-            Permissions-Policy "geolocation=(), microphone=(), camera=()"
-            Content-Security-Policy "
-                default-src 'self';
-                script-src 'self';
-                style-src 'self' 'unsafe-inline';
-                img-src 'self' data:;
-                font-src 'self';
-            "
-        }
-
-        # Caddy will automatically obtain and manage HTTPS certificates via Let's Encrypt
     }
     ```
     Change `example.com` to your domain — Caddy will automatically handle SSL certificates for you!
