@@ -18,6 +18,7 @@ Caddy, on the other hand, offers:
 - Lightweight and easy to maintain, you can easily switch to another reverse proxy later if needed
 
 That’s why I chose **Caddy** as my go-to reverse proxy for this use case.
+
 ---
 
 ## Prerequisites
